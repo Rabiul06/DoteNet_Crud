@@ -1,0 +1,46 @@
+﻿@model IEnumerable<CRUD_Project.Models.ViewModel.StudentClassSummaryViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+   
+    <div class="row">
+        <div class="col-8 ">
+            <table class="table table-bordered">
+                <thead class="bg-dark text-light">
+                    <tr>
+                        <th>StudentId</th>
+                        <th>Student NAme</th>
+                        <th>Gender</th>
+                        <th style="text-align:center">DateOf Birth</th>
+                        <th>Class Name</th>
+                        <th style="text-align:center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var s in Model)
+                    {
+                        <tr>
+                            <th>@s.StudentId</th>
+                            <th>@s.Std_Name</th>
+                            <th>@s.gender</th>
+                            <th>@s.DOB</th>
+                            <th>@s.name</th>
+                          
+                            <td>
+                                <a class="btn btn-sm btn-primary" asp-action="" asp-controller="Student" asp-route-id="@s.StudentId">Edit</a>
+                                <a class="btn btn-sm btn-danger" asp-action="" asp-controller="Student" asp-route-id="@s.StudentId">Delete</a>
+                                <a class="btn btn-sm btn-warning" asp-action="" asp-controller="Student" asp-route-id="@s.StudentId">Details</a>
+                            </td>
+                        </tr>
+                       
+                    }
+                 
+                    <a class="btn btn-sm btn-warning" asp-action="Create" asp-controller="Student" asp-route-id="">Create</a>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
